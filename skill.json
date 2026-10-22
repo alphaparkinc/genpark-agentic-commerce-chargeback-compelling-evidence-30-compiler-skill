@@ -1,0 +1,67 @@
+{
+  "name": "genpark-agentic-commerce-chargeback-compelling-evidence-30-compiler-skill",
+  "version": "1.0.0",
+  "title": "Visa CE 3.0 Compelling Evidence Chargeback Remedy Pack Skill",
+  "description": "Visa Compelling Evidence 3.0 qualifying historical transactions matching, automated pre-arbitration representation, and friendly fraud reverser. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "chargeback",
+    "visa-ce30",
+    "friendly-fraud",
+    "dispute-resolution",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "match_ce30_qualifying_historical_transactions",
+      "description": "Match 2 historical undisputed transactions (> 120 days old) sharing device IP, fingerprint, or login credentials.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "disputed_transaction": {
+            "type": "object"
+          },
+          "customer_history": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "disputed_transaction",
+          "customer_history"
+        ]
+      }
+    },
+    {
+      "name": "generate_ce30_vrol_pre_arbitration_packet",
+      "description": "Generate Visa Resolve Online (VROL) formatted response for liability shift under Rule 10.4.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "qualifying_tx_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shared_identifier_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "case_id",
+          "qualifying_tx_ids"
+        ]
+      }
+    }
+  ]
+}
